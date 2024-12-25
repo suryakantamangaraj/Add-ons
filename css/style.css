@@ -1,0 +1,71 @@
+:root {
+    --primary: #385297;
+    --primary-dark: #314884;
+    --primary-darker: #2A3E72;
+    --primary-darkest: #23345F;
+    --primary-light: #3F5CAA;
+    --primary-lighter: #4767BB;
+    --primary-lightest: #5A76C2;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: system-ui, -apple-system, sans-serif;
+    line-height: 1.5;
+    background-color: #f9fafb;
+}
+
+.app {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+.main-content {
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 3rem 1rem;
+    flex: 1;
+}
+
+.hero {
+    text-align: center;
+    margin-bottom: 3rem;
+}
+
+.hero-icon {
+    width: 4rem;
+    height: 4rem;
+    color: var(--primary);
+    margin-bottom: 1rem;
+}
+
+.hero h1 {
+    font-size: 2.5rem;
+    color: #111827;
+    margin-bottom: 1rem;
+}
+
+.hero p {
+    font-size: 1.25rem;
+    color: #4b5563;
+    max-width: 42rem;
+    margin: 0 auto;
+}
+
+.extensions-section h2 {
+    font-size: 1.5rem;
+    color: #111827;
+    margin-bottom: 1.5rem;
+}
+
+.extensions-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 1.5rem;
+}
