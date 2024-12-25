@@ -27,12 +27,34 @@ body {
     width: 100%;
 }
 
+/* Fixed Header & Footer */
+.navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+}
+
+.navbar-container {
+    max-width: 100%;
+    padding: 0 2rem;
+}
+
+.footer {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+}
+
+/* Main Content */
 .main-content {
     width: 100%;
-    max-width: 100%;
-    margin: 0;
-    padding: 3rem 2rem;
-    flex: 1;
+    margin-top: 64px; /* Height of navbar */
+    margin-bottom: 80px; /* Height of footer */
+    padding: 2rem;
 }
 
 .container {
@@ -41,6 +63,7 @@ body {
     width: 100%;
 }
 
+/* Hero Section */
 .hero {
     text-align: center;
     margin-bottom: 3rem;
@@ -69,126 +92,118 @@ body {
     margin: 0 auto;
 }
 
+/* Extensions Section */
 .extensions-section {
     width: 100%;
     max-width: 1440px;
     margin: 0 auto;
+    text-align: center;
 }
 
 .extensions-section h2 {
-    font-size: 1.5rem;
+    font-size: 2rem;
     color: #111827;
-    margin-bottom: 1.5rem;
+    margin-bottom: 2rem;
+    text-align: center;
 }
 
 .extensions-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    grid-template-columns: repeat(3, 1fr);
     gap: 2rem;
     width: 100%;
-}
-
-/* Extension Detail Page Styles */
-.extension-detail {
-    max-width: 1440px;
+    max-width: 1200px;
     margin: 0 auto;
-    padding: 2rem;
 }
 
-.extension-header {
-    text-align: center;
-    margin-bottom: 3rem;
+/* For 2 cards scenario */
+.extensions-grid:has(> .extension-card:nth-child(2):last-child) {
+    grid-template-columns: repeat(2, minmax(350px, 1fr));
+    justify-content: center;
+    max-width: 800px;
 }
 
-.extension-header h1 {
-    font-size: 2.5rem;
-    color: #111827;
-    margin-bottom: 1rem;
+/* Center last row items */
+.extensions-grid:last-child {
+    justify-content: center;
 }
 
-.extension-content {
-    display: grid;
-    grid-template-columns: 2fr 1fr;
-    gap: 2rem;
+/* For single item in last row */
+.extensions-grid > .extension-card:last-child:nth-child(3n-2) {
+    grid-column-start: 2;
 }
 
-.screenshots {
-    border-radius: 0.5rem;
-    overflow: hidden;
-}
-
-.screenshots img {
-    width: 100%;
-    height: auto;
-    border-radius: 0.5rem;
-}
-
-.features-list {
-    background: white;
-    padding: 2rem;
-    border-radius: 0.5rem;
-    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
-}
-
-.features-list h2 {
-    margin-bottom: 1rem;
-    color: #111827;
-}
-
-.features-list ul {
-    list-style: none;
-    padding: 0;
-}
-
-.features-list li {
-    padding: 0.5rem 0;
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
-}
-
-.features-list li::before {
-    content: "•";
-    color: var(--primary);
-    font-weight: bold;
-}
-
-.github-link {
+/* View All Button */
+.view-all-btn {
     display: inline-block;
-    margin-top: 1rem;
-    padding: 0.75rem 1.5rem;
+    margin-top: 3rem;
+    padding: 1rem 2rem;
     background-color: var(--primary);
     color: white;
     text-decoration: none;
-    border-radius: 0.375rem;
+    border-radius: 0.5rem;
+    font-weight: 600;
     transition: background-color 0.2s;
 }
 
-.github-link:hover {
+.view-all-btn:hover {
     background-color: var(--primary-dark);
 }
 
-/* Privacy Policy Styles */
-.privacy-policy {
-    max-width: 800px;
-    margin: 0 auto;
+/* Extensions List Page Specific Styles */
+.extensions-list-header {
+    text-align: center;
+    margin-bottom: 3rem;
     padding: 2rem;
-    background: white;
+    background: linear-gradient(135deg, var(--primary-light), var(--primary));
+    color: white;
     border-radius: 0.5rem;
-    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
 }
 
-.privacy-policy h1 {
-    margin-bottom: 2rem;
-    color: #111827;
-}
-
-.privacy-policy h2 {
-    margin: 1.5rem 0 1rem;
-    color: #111827;
-}
-
-.privacy-policy p {
+.extensions-list-header h1 {
+    font-size: 2.5rem;
     margin-bottom: 1rem;
-    color: #4b5563;
+}
+
+.extensions-list-header p {
+    font-size: 1.125rem;
+    opacity: 0.9;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.extensions-filters {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    margin-bottom: 2rem;
+}
+
+.filter-button {
+    padding: 0.5rem 1.5rem;
+    border: 1px solid var(--primary);
+    border-radius: 0.375rem;
+    background: white;
+    color: var(--primary);
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.filter-button:hover,
+.filter-button.active {
+    background: var(--primary);
+    color: white;
+}
+
+/* Media Queries */
+@media (max-width: 1200px) {
+    .extensions-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 768px) {
+    .extensions-grid {
+        grid-template-columns: 1fr;
+    }
 }
