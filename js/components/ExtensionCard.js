@@ -31,7 +31,7 @@ class ExtensionCard {
         stats.appendChild(reviews);
         
         const learnMore = createElement('a', 'learn-more-btn', 'Learn More');
-        learnMore.href = `/extension/${this.extension.id}`;
+        learnMore.href = `/extensions/${this.extension.id}.html`;
         
         footer.appendChild(stats);
         footer.appendChild(learnMore);

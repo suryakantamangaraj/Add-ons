@@ -24,18 +24,29 @@ body {
     min-height: 100vh;
     display: flex;
     flex-direction: column;
+    width: 100%;
 }
 
 .main-content {
-    max-width: 1280px;
-    margin: 0 auto;
-    padding: 3rem 1rem;
+    width: 100%;
+    max-width: 100%;
+    margin: 0;
+    padding: 3rem 2rem;
     flex: 1;
+}
+
+.container {
+    max-width: 1440px;
+    margin: 0 auto;
+    width: 100%;
 }
 
 .hero {
     text-align: center;
     margin-bottom: 3rem;
+    padding: 2rem;
+    background-color: white;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
 }
 
 .hero-icon {
@@ -58,6 +69,12 @@ body {
     margin: 0 auto;
 }
 
+.extensions-section {
+    width: 100%;
+    max-width: 1440px;
+    margin: 0 auto;
+}
+
 .extensions-section h2 {
     font-size: 1.5rem;
     color: #111827;
@@ -66,6 +83,112 @@ body {
 
 .extensions-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-    gap: 1.5rem;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 2rem;
+    width: 100%;
+}
+
+/* Extension Detail Page Styles */
+.extension-detail {
+    max-width: 1440px;
+    margin: 0 auto;
+    padding: 2rem;
+}
+
+.extension-header {
+    text-align: center;
+    margin-bottom: 3rem;
+}
+
+.extension-header h1 {
+    font-size: 2.5rem;
+    color: #111827;
+    margin-bottom: 1rem;
+}
+
+.extension-content {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 2rem;
+}
+
+.screenshots {
+    border-radius: 0.5rem;
+    overflow: hidden;
+}
+
+.screenshots img {
+    width: 100%;
+    height: auto;
+    border-radius: 0.5rem;
+}
+
+.features-list {
+    background: white;
+    padding: 2rem;
+    border-radius: 0.5rem;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.features-list h2 {
+    margin-bottom: 1rem;
+    color: #111827;
+}
+
+.features-list ul {
+    list-style: none;
+    padding: 0;
+}
+
+.features-list li {
+    padding: 0.5rem 0;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.features-list li::before {
+    content: "•";
+    color: var(--primary);
+    font-weight: bold;
+}
+
+.github-link {
+    display: inline-block;
+    margin-top: 1rem;
+    padding: 0.75rem 1.5rem;
+    background-color: var(--primary);
+    color: white;
+    text-decoration: none;
+    border-radius: 0.375rem;
+    transition: background-color 0.2s;
+}
+
+.github-link:hover {
+    background-color: var(--primary-dark);
+}
+
+/* Privacy Policy Styles */
+.privacy-policy {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 2rem;
+    background: white;
+    border-radius: 0.5rem;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.privacy-policy h1 {
+    margin-bottom: 2rem;
+    color: #111827;
+}
+
+.privacy-policy h2 {
+    margin: 1.5rem 0 1rem;
+    color: #111827;
+}
+
+.privacy-policy p {
+    margin-bottom: 1rem;
+    color: #4b5563;
 }
