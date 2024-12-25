@@ -3,10 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Extension Explorer</title>
+    <title>Developer Tools Explorer</title>
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/components/navbar.css">
-    <link rel="stylesheet" href="css/components/extension-card.css">
+    <link rel="stylesheet" href="css/components/product-card.css">
     <link rel="stylesheet" href="css/components/footer.css">
 </head>
 <body>
@@ -19,11 +19,14 @@
                         <line x1="3" y1="9" x2="21" y2="9"></line>
                         <line x1="9" y1="21" x2="9" y2="9"></line>
                     </svg>
-                    <span class="brand-text">Extension Explorer</span>
+                    <span class="brand-text">Developer Tools Explorer</span>
                 </div>
                 <div class="navbar-links">
                     <a href="/" class="nav-link">Home</a>
                     <a href="/extensions" class="nav-link">Extensions</a>
+                    <a href="/plugins" class="nav-link">Plugins</a>
+                    <a href="/widgets" class="nav-link">Widgets</a>
+                    <a href="/themes" class="nav-link">Themes</a>
                 </div>
             </div>
         </nav>
@@ -36,36 +39,36 @@
                         <line x1="3" y1="9" x2="21" y2="9"></line>
                         <line x1="9" y1="21" x2="9" y2="9"></line>
                     </svg>
-                    <h1>Welcome to Extension Explorer</h1>
-                    <p>Discover and explore powerful browser extensions that enhance your browsing experience.
-                       Each extension is carefully curated and reviewed by our community.</p>
+                    <h1>Welcome to Developer Tools Explorer</h1>
+                    <p>Discover and explore powerful developer tools including extensions, plugins, widgets, and themes. 
+                       Each tool is carefully curated and reviewed by our community.</p>
                 </div>
 
                 <section class="extensions-section">
-                    <h2>Featured Extensions</h2>
-                    <div class="extensions-grid" id="extensionsGrid"></div>
-                    <a href="/extensions" class="view-all-btn">View All Extensions</a>
+                    <h2>Featured Tools</h2>
+                    <div class="extensions-grid" id="productsGrid"></div>
+                    <a href="/products" class="view-all-btn">View All Tools</a>
                 </section>
             </div>
         </main>
 
         <footer class="footer">
-            <p>© <span id="currentYear"></span> Extension Explorer. All rights reserved.</p>
+            <p>© <span id="currentYear"></span> Developer Tools Explorer. All rights reserved.</p>
         </footer>
     </div>
 
-    <script src="js/data/extensions.js"></script>
+    <script src="js/data/products.js"></script>
     <script src="js/utils/dom.js"></script>
-    <script src="js/components/ExtensionCard.js"></script>
+    <script src="js/components/ProductCard.js"></script>
     <script>
         document.addEventListener('DOMContentLoaded', () => {
             document.getElementById('currentYear').textContent = new Date().getFullYear();
             
-            // Only show first 6 extensions on home page
-            const extensionsGrid = document.getElementById('extensionsGrid');
-            extensions.slice(0, 6).forEach(extension => {
-                const card = new ExtensionCard(extension);
-                extensionsGrid.appendChild(card.render());
+            // Only show first 6 products on home page
+            const productsGrid = document.getElementById('productsGrid');
+            products.slice(0, 6).forEach(product => {
+                const card = new ProductCard(product);
+                productsGrid.appendChild(card.render());
             });
         });
     </script>

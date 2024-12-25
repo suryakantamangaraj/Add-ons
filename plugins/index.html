@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Plugins - Addon Hub</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/components/navbar.css">
+    <link rel="stylesheet" href="../css/components/product-card.css">
+    <link rel="stylesheet" href="../css/components/footer.css">
+</head>
+<body>
+    <div class="app">
+        <nav class="navbar">
+            <div class="navbar-container">
+                <div class="navbar-brand">
+                    <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect>
+                        <line x1="3" y1="9" x2="21" y2="9"></line>
+                        <line x1="9" y1="21" x2="9" y2="9"></line>
+                    </svg>
+                    <span class="brand-text">Addon Hub</span>
+                </div>
+                <div class="navbar-links">
+                    <a href="/" class="nav-link">Home</a>
+                    <a href="/extensions" class="nav-link">Extensions</a>
+                    <a href="/plugins" class="nav-link">Plugins</a>
+                    <a href="/widgets" class="nav-link">Widgets</a>
+                    <a href="/themes" class="nav-link">Themes</a>
+                </div>
+            </div>
+        </nav>
+
+        <main class="main-content">
+            <div class="container">
+                <div class="extensions-list-header">
+                    <h1>Browse Plugins</h1>
+                    <p>Discover powerful plugins to enhance your development workflow.</p>
+                </div>
+
+                <div class="extensions-filters">
+                    <button class="filter-button active">All</button>
+                    <button class="filter-button">Development</button>
+                    <button class="filter-button">Design</button>
+                    <button class="filter-button">Productivity</button>
+                </div>
+
+                <div class="extensions-grid" id="pluginsGrid"></div>
+            </div>
+        </main>
+
+        <footer class="footer">
+            <p>© <span id="currentYear"></span> Addon Hub. All rights reserved.</p>
+        </footer>
+    </div>
+
+    <script src="../js/data/products.js"></script>
+    <script src="../js/utils/dom.js"></script>
+    <script src="../js/utils/filters.js"></script>
+    <script src="../js/components/ProductCard.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            document.getElementById('currentYear').textContent = new Date().getFullYear();
+            
+            const pluginsGrid = document.getElementById('pluginsGrid');
+            const plugins = filterProducts(products, ProductType.PLUGIN);
+            plugins.forEach(plugin => {
+                const card = new ProductCard(plugin);
+                pluginsGrid.appendChild(card.render());
+            });
+
+            // Handle filter clicks
+            document.querySelectorAll('.filter-button').forEach(button => {
+                button.addEventListener('click', (e) => {
+                    const category = e.target.textContent === 'All' ? null : e.target.textContent;
+                    document.querySelectorAll('.filter-button').forEach(btn => btn.classList.remove('active'));
+                    e.target.classList.add('active');
+                    
+                    pluginsGrid.innerHTML = '';
+                    const filtered = filterProducts(products, ProductType.PLUGIN, category);
+                    filtered.forEach(plugin => {
+                        const card = new ProductCard(plugin);
+                        pluginsGrid.appendChild(card.render());
+                    });
+                });
+            });
+        });
+    </script>
+</body>
+</html>
