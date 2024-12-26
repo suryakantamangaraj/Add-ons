@@ -8,7 +8,7 @@ class ProductCard {
     }
 
     render() {
-        const card = createElement('div', 'extension-card');
+        const card = createElement('div', 'card');
         
         const image = createElement('img', 'card-image');
         image.src = this.product.screenshots[0];

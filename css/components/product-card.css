@@ -1,4 +1,4 @@
-.extension-card {
+.card {
     background: white;
     border-radius: 0.5rem;
     overflow: hidden;
@@ -6,7 +6,7 @@
     transition: box-shadow 0.3s;
 }
 
-.extension-card:hover {
+.card:hover {
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 

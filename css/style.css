@@ -117,7 +117,7 @@ body {
 }
 
 /* For 2 cards scenario */
-.extensions-grid:has(> .extension-card:nth-child(2):last-child) {
+.extensions-grid:has(> .card:nth-child(2):last-child) {
     grid-template-columns: repeat(2, minmax(350px, 1fr));
     justify-content: center;
     max-width: 800px;
@@ -129,7 +129,7 @@ body {
 }
 
 /* For single item in last row */
-.extensions-grid > .extension-card:last-child:nth-child(3n-2) {
+.extensions-grid > .card:last-child:nth-child(3n-2) {
     grid-column-start: 2;
 }
 

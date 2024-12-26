@@ -4,7 +4,7 @@ class ExtensionCard {
     }
 
     render() {
-        const card = createElement('div', 'extension-card');
+        const card = createElement('div', 'card');
         
         const image = createElement('img', 'card-image');
         image.src = this.extension.screenshots[0];
