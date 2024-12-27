@@ -1,3 +1,5 @@
+import { createElement } from '../utils/dom.js';
+
 class ProductCard {
     constructor(product) {
         this.product = product;
