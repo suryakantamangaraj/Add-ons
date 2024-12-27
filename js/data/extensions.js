@@ -3,6 +3,7 @@ const extensions = [
         id: 'task-wizard',
         name: 'Task Wizard',
         description: 'Boost your productivity with AI-powered task management',
+        category: 'Productivity',
         features: [
             'AI task prioritization',
             'Smart reminders',
@@ -21,6 +22,7 @@ const extensions = [
         id: 'code-snap',
         name: 'Code Snap',
         description: 'Beautiful code screenshots in seconds',
+        category: 'Development',
         features: [
             'Syntax highlighting',
             'Custom themes',
@@ -39,6 +41,7 @@ const extensions = [
         id: 'color-palette',
         name: 'Color Palette',
         description: 'Generate beautiful color schemes from any image',
+        category: 'Design',
         features: [
             'Image color extraction',
             'Palette suggestions',
@@ -51,22 +54,5 @@ const extensions = [
         ],
         rating: 4.7,
         reviews: 143
-    },
-    {
-        id: 'tab-manager',
-        name: 'Tab Manager',
-        description: 'Organize and manage browser tabs efficiently',
-        features: [
-            'Tab grouping',
-            'Search across tabs',
-            'Session saving',
-            'Memory optimization'
-        ],
-        githubUrl: 'https://github.com/example/tab-manager',
-        screenshots: [
-            'https://images.unsplash.com/photo-1481487196290-c152efe083f5?auto=format&fit=crop&w=800&q=80'
-        ],
-        rating: 4.6,
-        reviews: 178
     }
 ];

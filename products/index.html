@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Extensions - Surya Utilities</title>
+    <title>All Products - Surya Utilities</title>
     <link rel="stylesheet" href="../css/style.css">
     <link rel="stylesheet" href="../css/components/navbar.css">
     <link rel="stylesheet" href="../css/components/product-card.css">
@@ -34,18 +34,19 @@
         <main class="main-content">
             <div class="container">
                 <div class="extensions-list-header">
-                    <h1>Browse Extensions</h1>
-                    <p>Explore our complete collection of powerful browser extensions.</p>
+                    <h1>All Products</h1>
+                    <p>Explore our complete collection of developer tools and utilities</p>
                 </div>
 
                 <div class="extensions-filters">
                     <button class="filter-button active">All</button>
-                    <button class="filter-button">Development</button>
-                    <button class="filter-button">Design</button>
-                    <button class="filter-button">Productivity</button>
+                    <button class="filter-button">Extensions</button>
+                    <button class="filter-button">Plugins</button>
+                    <button class="filter-button">Widgets</button>
+                    <button class="filter-button">Themes</button>
                 </div>
 
-                <div class="extensions-grid" id="extensionsGrid"></div>
+                <div class="extensions-grid" id="productsGrid"></div>
             </div>
         </main>
 
@@ -54,40 +55,42 @@
         </footer>
     </div>
 
-    <script src="../js/data/extensions.js"></script>
+    <script src="../js/data/products.js"></script>
     <script src="../js/utils/dom.js"></script>
-    <script src="../js/components/ExtensionCard.js"></script>
+    <script src="../js/utils/filters.js"></script>
+    <script src="../js/components/ProductCard.js"></script>
     <script>
         document.addEventListener('DOMContentLoaded', () => {
             document.getElementById('currentYear').textContent = new Date().getFullYear();
             
-            const extensionsGrid = document.getElementById('extensionsGrid');
+            const productsGrid = document.getElementById('productsGrid');
             
-            function renderExtensions(filtered = null) {
-                extensionsGrid.innerHTML = '';
-                const extensionsToShow = filtered || extensions;
-                extensionsToShow.forEach(extension => {
-                    const card = new ExtensionCard(extension);
-                    extensionsGrid.appendChild(card.render());
+            function renderProducts(filtered = null) {
+                productsGrid.innerHTML = '';
+                const productsToShow = filtered || products;
+                productsToShow.forEach(product => {
+                    const card = new ProductCard(product);
+                    productsGrid.appendChild(card.render());
                 });
             }
 
             // Initial render
-            renderExtensions();
+            renderProducts();
 
-            // Handle filter buttons
+            // Handle filter clicks
             document.querySelectorAll('.filter-button').forEach(button => {
-                button.addEventListener('click', () => {
-                    const category = button.textContent;
-                    document.querySelector('.filter-button.active').classList.remove('active');
-                    button.classList.add('active');
+                button.addEventListener('click', (e) => {
+                    const filterType = e.target.textContent.toLowerCase();
+                    document.querySelectorAll('.filter-button').forEach(btn => 
+                        btn.classList.remove('active'));
+                    e.target.classList.add('active');
                     
-                    if (category === 'All') {
-                        renderExtensions();
+                    if (filterType === 'all') {
+                        renderProducts();
                     } else {
-                        const filtered = extensions.filter(extension => 
-                            extension.category === category);
-                        renderExtensions(filtered);
+                        const filtered = products.filter(product => 
+                            product.type === filterType.slice(0, -1)); // Remove 's' from end
+                        renderProducts(filtered);
                     }
                 });
             });
