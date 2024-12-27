@@ -1,3 +1,6 @@
+// Import ProductCard
+import ProductCard from './ProductCard.js';
+
 // Product types enum
 const ProductType = {
     EXTENSION: 'extension',
@@ -84,3 +87,15 @@ const products = [
         reviews: 98
     }
 ];
+
+// Example function to render products using ProductCard
+export function renderProducts(container) {
+    container.innerHTML = ''; // Clear container
+    products.forEach(product => {
+        const productCard = new ProductCard(product); // Create a ProductCard instance
+        container.appendChild(productCard.render()); // Render and append the card
+    });
+}
+
+export { products, ProductType };
+

@@ -1,3 +1,6 @@
+// ProductCard.js
+import { createElement, createIcon } from '../utils/dom.js';
+
 class ProductCard {
     constructor(product) {
         this.product = product;
@@ -52,3 +55,5 @@ class ProductCard {
         return card;
     }
 }
+
+export default ProductCard;
