@@ -1,4 +1,4 @@
-const extensions = [
+export const extensions = [
     {
         id: 'task-wizard',
         name: 'Task Wizard',

@@ -1,3 +1,6 @@
+// ExtensionCard.js
+import { createElement, createIcon } from '../utils/dom.js';
+
 class ExtensionCard {
     constructor(extension) {
         this.extension = extension;
@@ -46,3 +49,5 @@ class ExtensionCard {
         return card;
     }
 }
+
+export default ExtensionCard;
