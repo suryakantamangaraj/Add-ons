@@ -1,5 +1,3 @@
-import { createElement } from '../utils/dom.js';
-
 class ExtensionCard {
     constructor(extension) {
         this.extension = extension;
