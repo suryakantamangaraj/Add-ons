@@ -17,6 +17,13 @@
     align-items: center;
     gap: 0.75rem;
     margin-left: 0;
+    text-decoration: none;
+    color: white;
+}
+
+.navbar-brand:hover {
+    color: white;
+    text-decoration: none;
 }
 
 .icon {
