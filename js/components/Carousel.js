@@ -1,12 +1,6 @@
-// Import DOM utilities if not already available in global scope
-const createElement = (tag, className, content = '') => {
-    const element = document.createElement(tag);
-    if (className) element.className = className;
-    if (content) element.textContent = content;
-    return element;
-};
+import { createElement } from '../utils/dom.js';
 
-class Carousel {
+export class Carousel {
     constructor(container, images) {
         this.container = container;
         this.images = images;
