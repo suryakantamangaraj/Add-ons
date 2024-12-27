@@ -97,17 +97,27 @@
         });
     </script> -->
     <script type="module">
-        import { renderProducts } from '../js/data/products.js';
-
+        import { applyFilters } from '../js/data/products.js';
+    
         document.addEventListener('DOMContentLoaded', () => {
-            document.getElementById('currentYear').textContent = new Date().getFullYear();
-
-            // Get the products grid container
             const productsGrid = document.getElementById('productsGrid');
-
-            // Render products dynamically
-            renderProducts(productsGrid);
+            const filterButtons = document.querySelectorAll('.filter-button');
+    
+            // Initial render: show all products
+            applyFilters(productsGrid, 'all');
+    
+            // Handle filter clicks
+            filterButtons.forEach(button => {
+                button.addEventListener('click', (e) => {
+                    const filterType = e.target.textContent.toLowerCase();
+                    document.querySelector('.filter-button.active').classList.remove('active');
+                    e.target.classList.add('active');
+                    const type = filterType === 'all' ? 'all' : filterType.slice(0, -1); // Remove trailing 's'
+                    applyFilters(productsGrid, type);
+                });
+            });
         });
     </script>
+    
 </body>
 </html>

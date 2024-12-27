@@ -57,34 +57,17 @@
         </footer>
     </div>
 
-   <!--  <script src="js/data/products.js"></script>
-    <script src="js/utils/dom.js"></script>
-    <script src="js/components/ProductCard.js"></script>
-    <script>
-        document.addEventListener('DOMContentLoaded', () => {
-            document.getElementById('currentYear').textContent = new Date().getFullYear();
-            
-            // Only show first 6 products on home page
-            const productsGrid = document.getElementById('productsGrid');
-            products.slice(0, 6).forEach(product => {
-                const card = new ProductCard(product);
-                productsGrid.appendChild(card.render());
-            });
-        });
-    </script> -->
     <script type="module">
-        import { products } from './js/data/products.js';
-        import ProductCard from './js/components/ProductCard.js';
+        import { products, renderProducts } from './js/data/products.js';
 
         document.addEventListener('DOMContentLoaded', () => {
             document.getElementById('currentYear').textContent = new Date().getFullYear();
 
-            // Render only the first 6 products for the home page
             const productsGrid = document.getElementById('productsGrid');
-            products.slice(0, 6).forEach(product => {
-                const card = new ProductCard(product);
-                productsGrid.appendChild(card.render());
-            });
+
+            // Render first 6 products for featured tools
+            const featuredProducts = products.slice(0, 6);
+            renderProducts(productsGrid, featuredProducts);
         });
     </script>
 </body>

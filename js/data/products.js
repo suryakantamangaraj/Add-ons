@@ -1,14 +1,16 @@
-// Import ProductCard
-import ProductCard from './ProductCard.js';
+// products.js
+import ProductCard from '../components/ProductCard.js';
+import { filterProducts } from '../utils/filters.js';
 
 // Product types enum
 const ProductType = {
     EXTENSION: 'extension',
     PLUGIN: 'plugin',
     WIDGET: 'widget',
-    THEME: 'theme'
+    THEME: 'theme',
 };
 
+// Products data
 const products = [
     {
         id: 'task-wizard',
@@ -20,14 +22,14 @@ const products = [
             'AI task prioritization',
             'Smart reminders',
             'Project templates',
-            'Time tracking'
+            'Time tracking',
         ],
         githubUrl: 'https://github.com/example/task-wizard',
         screenshots: [
-            'https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=800&q=80'
+            'https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=800&q=80',
         ],
         rating: 4.8,
-        reviews: 256
+        reviews: 256,
     },
     {
         id: 'code-snap',
@@ -39,14 +41,14 @@ const products = [
             'Syntax highlighting',
             'Custom themes',
             'Multiple languages support',
-            'Direct sharing'
+            'Direct sharing',
         ],
         githubUrl: 'https://github.com/example/code-snap',
         screenshots: [
-            'https://images.unsplash.com/photo-1555949963-ff9fe0c870eb?auto=format&fit=crop&w=800&q=80'
+            'https://images.unsplash.com/photo-1555949963-ff9fe0c870eb?auto=format&fit=crop&w=800&q=80',
         ],
         rating: 4.9,
-        reviews: 189
+        reviews: 189,
     },
     {
         id: 'color-palette',
@@ -58,14 +60,14 @@ const products = [
             'Image color extraction',
             'Palette suggestions',
             'Export to various formats',
-            'Color accessibility checker'
+            'Color accessibility checker',
         ],
         githubUrl: 'https://github.com/example/color-palette',
         screenshots: [
-            'https://images.unsplash.com/photo-1579547944212-c4f4961a8dd8?auto=format&fit=crop&w=800&q=80'
+            'https://images.unsplash.com/photo-1579547944212-c4f4961a8dd8?auto=format&fit=crop&w=800&q=80',
         ],
         rating: 4.7,
-        reviews: 143
+        reviews: 143,
     },
     {
         id: 'responsive-grid',
@@ -77,25 +79,30 @@ const products = [
             'Drag and drop interface',
             'Custom breakpoints',
             'CSS export',
-            'Template library'
+            'Template library',
         ],
         githubUrl: 'https://github.com/example/responsive-grid',
         screenshots: [
-            'https://images.unsplash.com/photo-1507721999472-8ed4421c4af2?auto=format&fit=crop&w=800&q=80'
+            'https://images.unsplash.com/photo-1507721999472-8ed4421c4af2?auto=format&fit=crop&w=800&q=80',
         ],
         rating: 4.6,
-        reviews: 98
-    }
+        reviews: 98,
+    },
 ];
 
-// Example function to render products using ProductCard
-export function renderProducts(container) {
-    container.innerHTML = ''; // Clear container
-    products.forEach(product => {
-        const productCard = new ProductCard(product); // Create a ProductCard instance
-        container.appendChild(productCard.render()); // Render and append the card
+// Render products dynamically
+export function renderProducts(container, filteredProducts) {
+    container.innerHTML = ''; // Clear container content
+    filteredProducts.forEach(product => {
+        const productCard = new ProductCard(product);
+        container.appendChild(productCard.render());
     });
 }
 
-export { products, ProductType };
+// Handle filters
+export function applyFilters(container, type = 'all', category = null) {
+    const filteredProducts = filterProducts(products, type, category);
+    renderProducts(container, filteredProducts);
+}
 
+export { products, ProductType };

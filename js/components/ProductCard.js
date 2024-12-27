@@ -14,14 +14,14 @@ class ProductCard {
         const card = createElement('div', 'card');
         
         const image = createElement('img', 'card-image');
-        image.src = this.product.screenshots[0];
-        image.alt = this.product.name;
+        image.src = this.product.screenshots?.[0] || 'https://via.placeholder.com/150'; // Fallback image
+        image.alt = this.product.name || 'Unnamed Product';
         
         const content = createElement('div', 'card-content');
         
         const typeLabel = createElement('span', 'type-label', this.getTypeLabel());
-        const title = createElement('h3', 'card-title', this.product.name);
-        const description = createElement('p', 'card-description', this.product.description);
+        const title = createElement('h3', 'card-title', this.product.name || 'Untitled');
+        const description = createElement('p', 'card-description', this.product.description || 'No description available.');
         
         const footer = createElement('div', 'card-footer');
         
@@ -29,11 +29,11 @@ class ProductCard {
         
         const rating = createElement('div', 'stats-item');
         rating.appendChild(createIcon('star'));
-        rating.appendChild(createElement('span', '', this.product.rating));
+        rating.appendChild(createElement('span', '', this.product.rating || 'N/A'));
         
         const reviews = createElement('div', 'stats-item');
         reviews.appendChild(createIcon('users'));
-        reviews.appendChild(createElement('span', '', this.product.reviews));
+        reviews.appendChild(createElement('span', '', this.product.reviews || '0'));
         
         stats.appendChild(rating);
         stats.appendChild(reviews);
