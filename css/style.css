@@ -92,22 +92,22 @@ body {
     margin: 0 auto;
 }
 
-/* Extensions Section */
-.extensions-section {
+/* Products Section */
+.products-section {
     width: 100%;
     max-width: 1440px;
     margin: 0 auto;
     text-align: center;
 }
 
-.extensions-section h2 {
+.products-section h2 {
     font-size: 2rem;
     color: #111827;
     margin-bottom: 2rem;
     text-align: center;
 }
 
-.extensions-grid {
+.products-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 2rem;
@@ -117,19 +117,19 @@ body {
 }
 
 /* For 2 cards scenario */
-.extensions-grid:has(> .card:nth-child(2):last-child) {
+.products-grid:has(> .card:nth-child(2):last-child) {
     grid-template-columns: repeat(2, minmax(350px, 1fr));
     justify-content: center;
     max-width: 800px;
 }
 
 /* Center last row items */
-.extensions-grid:last-child {
+.products-grid:last-child {
     justify-content: center;
 }
 
 /* For single item in last row */
-.extensions-grid > .card:last-child:nth-child(3n-2) {
+.products-grid > .card:last-child:nth-child(3n-2) {
     grid-column-start: 2;
 }
 
@@ -150,8 +150,8 @@ body {
     background-color: var(--primary-dark);
 }
 
-/* Extensions List Page Specific Styles */
-.extensions-list-header {
+/* Products List Page Specific Styles */
+.products-list-header {
     text-align: center;
     margin-bottom: 3rem;
     padding: 2rem;
@@ -160,19 +160,19 @@ body {
     border-radius: 0.5rem;
 }
 
-.extensions-list-header h1 {
+.products-list-header h1 {
     font-size: 2.5rem;
     margin-bottom: 1rem;
 }
 
-.extensions-list-header p {
+.products-list-header p {
     font-size: 1.125rem;
     opacity: 0.9;
     max-width: 600px;
     margin: 0 auto;
 }
 
-.extensions-filters {
+.products-filters {
     display: flex;
     justify-content: center;
     gap: 1rem;
@@ -197,13 +197,13 @@ body {
 
 /* Media Queries */
 @media (max-width: 1200px) {
-    .extensions-grid {
+    .products-grid {
         grid-template-columns: repeat(2, 1fr);
     }
 }
 
 @media (max-width: 768px) {
-    .extensions-grid {
+    .products-grid {
         grid-template-columns: 1fr;
     }
 }

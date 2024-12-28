@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Plugins - Surya Utilities</title>
+    <title>Themes - Surya Utilities</title>
     <link rel="stylesheet" href="../css/style.css">
     <link rel="stylesheet" href="../css/components/navbar.css">
     <link rel="stylesheet" href="../css/components/product-card.css">
@@ -17,17 +17,15 @@
         <main class="main-content">
             <div class="container">
                 <div class="products-list-header">
-                    <h1>Browse Plugins</h1>
-                    <p>Explore our complete collection of powerful browser plugins.</p>
+                    <h1>Browse Themes</h1>
+                    <p>Explore our complete collection of beautiful themes.</p>
                 </div>
 
                 <div class="products-filters">
                     <button class="filter-button active">All</button>
-                    <button class="filter-button">Development</button>
-                    <button class="filter-button">Design</button>
-                    <button class="filter-button">Productivity</button>
-                    <button class="filter-button">Writing</button>
-                    <button class="filter-button">Organization</button>
+                    <button class="filter-button">Light</button>
+                    <button class="filter-button">Dark</button>
+                    <button class="filter-button">Customizable</button>
                 </div>
 
                 <div class="products-grid" id="productsGrid"></div>
@@ -39,8 +37,8 @@
 
     <script type="module">
         import { includeHTML } from '../js/utils/include.js';
-        import PluginCard from '../js/components/PluginCard.js';
-        import { plugins } from '../js/data/plugins.js';
+        import ThemeCard from '../js/components/ThemeCard.js';
+        import { themes } from '../js/data/themes.js';
         
         document.addEventListener('DOMContentLoaded', async () => {
             // Include HTML components
@@ -49,17 +47,17 @@
             
             const productsGrid = document.getElementById('productsGrid');
             
-            function renderPlugins(filtered = null) {
+            function renderThemes(filtered = null) {
                 productsGrid.innerHTML = '';
-                const pluginsToShow = filtered || plugins;
-                pluginsToShow.forEach(plugin => {
-                    const card = new PluginCard(plugin);
+                const themesToShow = filtered || themes;
+                themesToShow.forEach(theme => {
+                    const card = new ThemeCard(theme);
                     productsGrid.appendChild(card.render());
                 });
             }
 
             // Initial render
-            renderPlugins();
+            renderThemes();
 
             // Handle filter buttons
             document.querySelectorAll('.filter-button').forEach(button => {
@@ -69,11 +67,11 @@
                     button.classList.add('active');
                     
                     if (category === 'All') {
-                        renderPlugins();
+                        renderThemes();
                     } else {
-                        const filtered = plugins.filter(plugin => 
-                            plugin.category === category);
-                        renderPlugins(filtered);
+                        const filtered = themes.filter(theme => 
+                            theme.category === category);
+                        renderThemes(filtered);
                     }
                 });
             });
