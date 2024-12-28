@@ -11,7 +11,7 @@
 </head>
 <body>
     <div class="app">
-        <nav class="navbar">
+        <!-- <nav class="navbar">
             <div class="navbar-container">
                 <a href="/" class="navbar-brand">
                     <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
@@ -29,7 +29,8 @@
                     <a href="/themes" class="nav-link">Themes</a>
                 </div>
             </div>
-        </nav>
+        </nav> -->
+        <div include-html="../components/header.html"></div>
 
         <main class="main-content">
             <div class="container">
@@ -49,19 +50,24 @@
             </div>
         </main>
 
-        <footer class="footer">
+        <!-- <footer class="footer">
             <p>© <span id="currentYear"></span> Surya Utilities. All rights reserved.</p>
-        </footer>
+        </footer> -->
+        <div include-html="../components/footer.html"></div>
     </div>
 
 <!--     <script src="../js/data/extensions.js"></script>
     <script src="../js/utils/dom.js"></script>
     <script src="../js/components/ExtensionCard.js"></script> -->
     <script type="module">
+        import { includeHTML } from '../js/utils/include.js';
         import ExtensionCard from '../js/components/ExtensionCard.js';
         import { extensions } from '../js/data/extensions.js';
         
-        document.addEventListener('DOMContentLoaded', () => {
+        
+        document.addEventListener('DOMContentLoaded', async () => {
+            // Include HTML components
+            await includeHTML();
             document.getElementById('currentYear').textContent = new Date().getFullYear();
             
             const extensionsGrid = document.getElementById('extensionsGrid');
