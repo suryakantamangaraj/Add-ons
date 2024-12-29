@@ -22,4 +22,4 @@ export const createIcon = (type) => {
     const wrapper = createElement('span', 'icon');
     wrapper.innerHTML = icons[type];
     return wrapper;
-};
+}; 
