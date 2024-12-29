@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dark Mode Theme - Surya Utilities</title>
+    <meta name="description" content="A sleek and modern dark theme for your application">
+    <meta name="keywords" content="dark theme, dark mode, custom theme, developer tools">
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/components/navbar.css">
+    <link rel="stylesheet" href="../css/components/product-detail.css">
+    <link rel="stylesheet" href="../css/components/footer.css">
+    <link rel="stylesheet" href="../css/responsive.css">
+</head>
+<body>
+    <div class="app">
+        <div include-html="../components/header.html"></div>
+        <main class="main-content">
+            <div class="product-detail">
+                <div class="product-header">
+                    <h1>Dark Mode Theme</h1>
+                    <p>A sleek and modern dark theme for your application</p>
+                </div>
+                <div class="product-content">
+                    <div>
+                        <div id="productCarousel"></div>
+                        <div class="product-description">
+                            <h2>Modern Dark Experience</h2>
+                            <p>Transform your application with our carefully crafted dark theme. Perfect for reducing eye strain and creating a modern look.</p>
+                            <h2>Customizable Colors</h2>
+                            <p>Easily customize the color palette to match your brand while maintaining accessibility and readability.</p>
+                            <h2>Cross-Platform Support</h2>
+                            <p>Works seamlessly across different platforms and frameworks. Includes ready-to-use implementations for popular frameworks.</p>
+                        </div>
+                        <div class="demo-section">
+                            <h2>See Dark Mode in Action</h2>
+                            <div class="demo-video">
+                                Demo Video Placeholder
+                            </div>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="features-list">
+                            <h2>Key Features</h2>
+                            <ul>
+                                <li>High contrast ratios</li>
+                                <li>Customizable colors</li>
+                                <li>Framework agnostic</li>
+                                <li>Easy installation</li>
+                                <li>Accessibility focused</li>
+                                <li>RTL support</li>
+                            </ul>
+                            <div class="action-links">
+                                <a href="https://demo.darkmode.theme" class="live-link">
+                                    <svg class="icon"><use href="/assets/icons/icons.svg#demo"></use></svg>
+                                    Live Demo
+                                </a>
+                                <a href="https://buy.darkmode.theme" class="live-link">
+                                    <svg class="icon"><use href="/assets/icons/icons.svg#cart"></use></svg>
+                                    Buy Now
+                                </a>
+                                <a href="https://firefox.com/themes" class="live-link">
+                                    <svg class="icon"><use href="/assets/icons/icons.svg#firefox"></use></svg>
+                                    Visit Firefox Store
+                                </a>
+                                <a href="dark-mode/privacy-policy.html" class="privacy-link">
+                                    <svg class="icon"><use href="/assets/icons/icons.svg#privacy"></use></svg>
+                                    Privacy Policy
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+        <div include-html="../components/footer.html"></div>
+    </div>
+    <script type="module">
+        import { includeHTML } from '../js/utils/include.js';
+        import { Carousel } from '../js/components/Carousel.js';
+        
+        document.addEventListener('DOMContentLoaded', async () => {
+            await includeHTML();
+            const images = [
+                'https://images.unsplash.com/photo-1533907657544-b8dc71d9423d?auto=format&fit=crop&w=800&q=80'
+            ];
+            const carouselContainer = document.getElementById('productCarousel');
+            const carousel = new Carousel(carouselContainer, images);
+            carouselContainer.appendChild(carousel.render());
+        });
+    </script>
+</body>
+</html>

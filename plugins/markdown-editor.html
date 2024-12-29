@@ -3,9 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Task Wizard - Surya Utilities</title>
-    <meta name="description" content="AI-powered task management tool that helps boost productivity through smart prioritization and team collaboration">
-    <meta name="keywords" content="task management, AI productivity, project management, team collaboration">
+    <title>Markdown Editor - Surya Utilities</title>
+    <meta name="description" content="A powerful markdown editor with live preview and syntax highlighting">
+    <meta name="keywords" content="markdown editor, live preview, syntax highlighting, writing tools">
     <link rel="stylesheet" href="../css/style.css">
     <link rel="stylesheet" href="../css/components/navbar.css">
     <link rel="stylesheet" href="../css/components/product-detail.css">
@@ -17,22 +17,22 @@
         <main class="main-content">
             <div class="product-detail">
                 <div class="product-header">
-                    <h1>Task Wizard</h1>
-                    <p>Boost your productivity with AI-powered task management</p>
+                    <h1>Markdown Editor</h1>
+                    <p>A powerful markdown editor with live preview and syntax highlighting</p>
                 </div>
                 <div class="product-content">
                     <div>
                         <div id="productCarousel"></div>
                         <div class="product-description">
-                            <h2>Transform Your Workflow</h2>
-                            <p>Task Wizard revolutionizes how you manage tasks and projects with its intelligent AI-driven approach. Experience a new level of productivity with smart task prioritization and automated workflows.</p>
-                            <h2>Team Collaboration Made Simple</h2>
-                            <p>Seamlessly collaborate with your team, share projects, and track progress in real-time. Our intuitive interface makes it easy to delegate tasks and monitor team performance.</p>
-                            <h2>AI-Powered Insights</h2>
-                            <p>Leverage machine learning algorithms to optimize your workflow, predict task completion times, and receive intelligent suggestions for better project management.</p>
+                            <h2>Write with Confidence</h2>
+                            <p>Experience seamless markdown editing with our powerful editor. See your changes in real-time with the live preview feature and enjoy beautiful syntax highlighting.</p>
+                            <h2>Export Anywhere</h2>
+                            <p>Export your content to multiple formats including PDF and HTML. Perfect for creating documentation, blog posts, or any other content.</p>
+                            <h2>Customizable Experience</h2>
+                            <p>Choose from various themes to match your style. Customize the editor layout and keyboard shortcuts to create your perfect writing environment.</p>
                         </div>
                         <div class="demo-section">
-                            <h2>See Task Wizard in Action</h2>
+                            <h2>See Markdown Editor in Action</h2>
                             <div class="demo-video">
                                 Demo Video Placeholder
                             </div>
@@ -42,21 +42,25 @@
                         <div class="features-list">
                             <h2>Key Features</h2>
                             <ul>
-                                <li>AI task prioritization</li>
-                                <li>Smart reminders</li>
-                                <li>Project templates</li>
-                                <li>Time tracking</li>
-                                <li>Team collaboration</li>
-                                <li>Custom workflows</li>
-                                <li>Progress analytics</li>
-                                <li>Integration support</li>
+                                <li>Live preview</li>
+                                <li>Syntax highlighting</li>
+                                <li>Export to PDF and HTML</li>
+                                <li>Customizable themes</li>
+                                <li>Keyboard shortcuts</li>
+                                <li>Auto-save</li>
+                                <li>Table support</li>
+                                <li>Image uploads</li>
                             </ul>
                             <div class="action-links">
                                 <a href="https://chrome.google.com/webstore" class="live-link">
                                     <svg class="icon"><use href="/assets/icons/icons.svg#chrome"></use></svg>
                                     Available on Chrome Web Store
                                 </a>
-                                <a href="task-wizard/privacy-policy.html" class="privacy-link">
+                                <a href="https://marketplace.visualstudio.com" class="live-link">
+                                    <svg class="icon"><use href="/assets/icons/icons.svg#vscode"></use></svg>
+                                    Get it on VS Marketplace
+                                </a>
+                                <a href="markdown-editor/privacy-policy.html" class="privacy-link">
                                     <svg class="icon"><use href="/assets/icons/icons.svg#privacy"></use></svg>
                                     Privacy Policy
                                 </a>
@@ -75,9 +79,8 @@
         document.addEventListener('DOMContentLoaded', async () => {
             await includeHTML();
             const images = [
-                'https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=800&q=80',
-                'https://images.unsplash.com/photo-1555774698-0b77e0d5fac6?auto=format&fit=crop&w=800&q=80',
-                'https://images.unsplash.com/photo-1554415707-6e8cfc93fe23?auto=format&fit=crop&w=800&q=80'
+                'https://images.unsplash.com/photo-1522075469751-3a6694fb2f61?auto=format&fit=crop&w=800&q=80',
+                'https://images.unsplash.com/photo-1517430816045-df4b7de211e0?auto=format&fit=crop&w=800&q=80'
             ];
             const carouselContainer = document.getElementById('productCarousel');
             const carousel = new Carousel(carouselContainer, images);
