@@ -1,0 +1,81 @@
+/* Privacy Policy Page Styles */
+.privacy-policy-container {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 2rem;
+}
+
+.privacy-header {
+    text-align: center;
+    padding: 3rem 0;
+    background: linear-gradient(135deg, var(--primary-light), var(--primary));
+    color: white;
+    border-radius: 1rem;
+    margin-bottom: 3rem;
+}
+
+.privacy-header h1 {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+}
+
+.privacy-header p {
+    font-size: 1.25rem;
+    opacity: 0.9;
+}
+
+.privacy-content {
+    background: white;
+    padding: 2rem;
+    border-radius: 1rem;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+.privacy-content h2 {
+    color: var(--primary);
+    margin: 1.5rem 0 1rem;
+}
+
+.privacy-content h2:first-child {
+    margin-top: 0;
+}
+
+.privacy-content p {
+    color: #4a5568;
+    line-height: 1.6;
+    margin-bottom: 1rem;
+}
+
+.back-link-container {
+    display: flex;
+    justify-content: center;
+    margin-top: 2rem;
+}
+
+.back-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.75rem 1.5rem;
+    background: var(--primary-light);
+    color: white;
+    border-radius: 2rem;
+    text-decoration: none;
+    font-weight: 500;
+    transition: background-color 0.2s;
+}
+
+.back-link:hover {
+    background: var(--primary);
+}
+
+.back-link .icon {
+    width: 1.25rem;
+    height: 1.25rem;
+}
+
+.effective-date {
+    text-align: center;
+    margin-top: 2rem;
+    color: var(--primary);
+}
